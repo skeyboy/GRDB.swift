@@ -59,6 +59,13 @@ final class StatementAuthorizer {
         isDropStatement = false
     }
     
+    func strcmp(_ cString: UnsafePointer<Int8>, _ value: String) -> Int32 {
+        if String(cString: cString) == value {
+            return 0
+        }
+        return -1
+    }
+    
     private func authorize(
         _ actionCode: CInt,
         _ cString1: UnsafePointer<CChar>?,
